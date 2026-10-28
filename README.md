@@ -48,9 +48,40 @@ The analysis results are printed to the terminal.
 
 ## Input Format
 
-The project supports parsing Moxfield text decklists containing card quantities and names, organized into sections for commanders, main-deck cards, and sideboard cards.
+### Plain-Text Decklists
 
-The parser produces card-name arrays that can be passed to the Scryfall integration to retrieve complete card objects.
+The project supports parsing decklists in the **plain-text export format used by [Moxfield](https://www.moxfield.com/)**. Decklists contain card quantities and names, organized into sections for main-deck cards, optional sideboard cards, and commanders.
+
+Users can export a decklist from Moxfield or manually construct one using the same format.
+
+**Example:**
+
+```text
+1 Sol Ring
+1 Arcane Signet
+1 Counterspell
+1 Swords to Plowshares
+10 Island
+10 Plains
+
+SIDEBOARD:
+1 Negate
+1 Disenchant
+
+1 Brago, King Eternal
+```
+
+Each card entry begins with a quantity followed by the card name. The main deck is listed first, followed by an optional `SIDEBOARD:` section and a separate commander section at the end.
+
+Separate the main deck, optional sideboard, and commander sections with a single blank line. The commander section must appear last.
+
+The example illustrates the expected structure rather than a complete 100-card Commander deck.
+
+The parser produces card-name arrays that can be passed to the Scryfall integration to retrieve complete card objects. Sideboard cards are parsed separately and excluded from deck analysis.
+
+Currently, decklist text is supplied through `demo.js`; interactive text entry is not yet implemented.
+
+### JavaScript Deck Object
 
 The analyzer itself accepts a JavaScript object containing two properties:
 
