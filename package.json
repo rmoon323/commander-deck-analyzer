@@ -1,0 +1,8 @@
+{
+  "name": "commander-deck-analyzer",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "demo": "node demo.js"
+  }
+}

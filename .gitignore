@@ -1,0 +1,14 @@
+# Local development notes
+*_ARTICULATIONS.md
+*_PROGRESS.md
+
+# Node.js dependencies
+node_modules/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Temporary files
+*.log
+.DS_Store
